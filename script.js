@@ -13,24 +13,48 @@ const map = new mapboxgl.Map({
 map.addControl(new mapboxgl.NavigationControl());
 
 map.on("load", () => {
-    map.addSource('bike-routes', {
-        type: 'geojson',
-        data: 'https://glaserja5.github.io/Lab-2-GGR472/data/map.geojson'
+    console.log("✅ Map loaded!");
+
+    // 🔹 ADD BIKE ROUTES FROM GEOJSON (Your GitHub File)
+    map.addSource("bike-routes", {
+        type: "geojson",
+        data: "https://glaserja5.github.io/Lab-2-GGR472/data/map.geojson"
     });
 
-    map.addSource('toronto-crash-data', {
-        type: 'vector',
-        url: 'mapbox://glaserja.2xncd4nw'
-
+    // 🔹 ADD FATAL COLLISION DATA FROM MAPBOX TILESET
+    map.addSource("toronto-crash-data", {
+        type: "vector",
+        url: "mapbox://glaserja.2xncd4nw" // ✅ Make sure this is your actual tileset ID
     });
 
+    // 🔹 DRAW BIKE ROUTES AS LINES
     map.addLayer({
-        id: 'toronto-crash-data',
-        type: 'circle',
-        source: 'toronto-crash-data',
+        id: "bike-routes-layer",
+        type: "line",
+        source: "bike-routes",
+        layout: {
+            "line-join": "round",
+            "line-cap": "round"
+        },
+        paint: {
+            "line-color": "#007cbf", // 🔵 Blue for bike lanes
+            "line-width": 3
+        }
+    });
+
+    console.log("✅ Bike routes added!");
+
+    // 🔹 DRAW FATAL COLLISION POINTS AS RED CIRCLES
+    map.addLayer({
+        id: "toronto-crash-layer",
+        type: "circle",
+        source: "toronto-crash-data",
+        "source-layer": "CYCLIST", // 🔥 Replace with actual tileset layer name
         paint: {
             "circle-radius": 5,
-            "circle-color": "#ff0000"
+            "circle-color": "red"
         }
-    })
-})
+    });
+
+    console.log("✅ Crash data added!");
+});
