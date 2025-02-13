@@ -49,7 +49,7 @@ map.on("load", () => {
         id: "toronto-crash-layer",
         type: "circle",
         source: "toronto-crash-data",
-        "source-layer": "CYCLIST", // 🔥 Replace with actual tileset layer name
+        "source-layer": "TOTAL_KSI_-443861647161779187-ade2h2", // 🔥 Replace with actual tileset layer name
         paint: {
             "circle-radius": 5,
             "circle-color": "red"
