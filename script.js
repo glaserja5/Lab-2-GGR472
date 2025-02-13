@@ -18,7 +18,7 @@ map.on("load", () => {
     // call bikeroute data
     map.addSource("bike-routes", {
         type: "geojson",
-        data: "https://glaserja5.github.io/Lab-2-GGR472/data/map.geojson" // THE ####ING DATA WONT LOAD I DONT KNOW WHY
+        data: "https://glaserja5.github.io/Lab-2-GGR472/main/data/bikeroutes.geojson" // THE ####ING DATA WONT LOAD I DONT KNOW WHY
     });
 
     // 🔹 ADD FATAL COLLISION DATA FROM MAPBOX TILESET
