@@ -3,8 +3,8 @@ mapboxgl.accessToken = "pk.eyJ1IjoiZ2xhc2VyamEiLCJhIjoiY201b2RybzhxMGt5ZDJrcTFoY
 
 // Initialize the Mapbox map
 const map = new mapboxgl.Map({
-    container: "my-map", // Must match the ID in index.html
-    style: "mapbox://styles/glaserja/cm72c3cvb007u01s31k928na5", // Your custom Mapbox Studio style
+    container: "my-map",
+    style: "mapbox://styles/glaserja/cm72c3cvb007u01s31k928na5",
     center: [-79.39, 43.66], // Toronto coordinates
     zoom: 12
 });
@@ -18,10 +18,10 @@ map.on("load", () => {
     // call bikeroute data
     map.addSource("bike-routes", {
         type: "geojson",
-        data: "https://glaserja5.github.io/Lab-2-GGR472/main/data/bikeroutes.geojson" // THE ####ING DATA WONT LOAD I DONT KNOW WHY
+        data: "https://glaserja5.github.io/Lab-2-GGR472/data/bikeroutes.geojson" // THE ####ING DATA WONT LOAD I DONT KNOW WHY
     });
 
-    // 🔹 ADD FATAL COLLISION DATA FROM MAPBOX TILESET
+    // add tileset data source from mapbox
     map.addSource("toronto-crash-data", {
         type: "vector",
         url: "mapbox://glaserja.1s8ixfae" // calls tileset id from mapbox
