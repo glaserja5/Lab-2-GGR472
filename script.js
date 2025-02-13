@@ -24,7 +24,7 @@ map.on("load", () => {
     // 🔹 ADD FATAL COLLISION DATA FROM MAPBOX TILESET
     map.addSource("toronto-crash-data", {
         type: "vector",
-        url: "mapbox://glaserja.2xncd4nw" // ✅ Make sure this is your actual tileset ID
+        url: "mapbox://glaserja.1s8ixfae" // ✅ Make sure this is your actual tileset ID
     });
 
     // 🔹 DRAW BIKE ROUTES AS LINES
@@ -51,10 +51,32 @@ map.on("load", () => {
         source: "toronto-crash-data",
         "source-layer": "TOTAL_KSI_-443861647161779187-ade2h2", // 🔥 Replace with actual tileset layer name
         paint: {
-            "circle-radius": 5,
+            "circle-radius": 3.5,
             "circle-color": "red"
-        }
+        },
+        filter: ["==", ["get", "CYCLIST"], "Yes"] // ✅ Show only cyclist crashes
+
     });
 
+    // Add popup on click for cyclist crash points
+map.on("click", "toronto-crash-layer", (e) => {
+    const properties = e.features[0].properties;
+
+    // Create popup content
+    const popupContent = `
+        <strong>Crash Summary</strong><br>
+        <b>Location:</b> ${properties.ACCLOC || "Unknown"}<br>
+        <b>Impact Type:</b> ${properties.IMPACTYPE || "Unknown"}<br>
+        <b>Accident Class:</b> ${properties.ACCCLASS || "Unknown"}<br>
+        <b>Date:</b> ${properties.DATE || "Unknown"}
+    `;
+
+    // Add popup to the map
+    new mapboxgl.Popup()
+        .setLngLat(e.lngLat)
+        .setHTML(popupContent)
+        .addTo(map);
+});
+    
     console.log("✅ Crash data added!");
 });
