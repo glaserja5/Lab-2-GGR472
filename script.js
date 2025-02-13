@@ -12,24 +12,25 @@ const map = new mapboxgl.Map({
 // Add navigation controls (zoom and rotation)
 map.addControl(new mapboxgl.NavigationControl());
 
-console.log("✅ Map initialized successfully!");
-
 map.on("load", () => {
-    console.log("✅ Map loaded, adding bike lanes...");
+    map.addSource('bike-routes', {
+        type: 'geojson',
+        data: 'https://glaserja5.github.io/Lab-2-GGR472/data/map.geojson'
+    });
 
-    // Load bike lane data from an external file
-    fetch("data/cycling-network-4326.geojson")
-        .then(response => response.json())
-        .then(data => {
-            console.log("✅ Bike lane GeoJSON loaded:", data);
+    map.addSource('toronto-crash-data', {
+        type: 'vector',
+        url: 'mapbox://glaserja.2xncd4nw'
 
-            // Add the GeoJSON source
-            map.addSource("bike-lanes", {
-                type: "geojson",
-                data: data
-            });
+    });
 
-            console.log("✅ Bike lane source added!");
-        })
-        .catch(error => console.error("❌ Error loading bike lanes:", error));
-});
+    map.addLayer({
+        id: 'toronto-crash-data',
+        type: 'circle',
+        source: 'toronto-crash-data',
+        paint: {
+            "circle-radius": 5,
+            "circle-color": "#ff0000"
+        }
+    })
+})
