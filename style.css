@@ -1,10 +1,10 @@
-/* Reset default margins and padding */
+/* Reset default margins and padding. formatting taken from ChatGPT */
 html, body {
     margin: 0;
     padding: 0;
     width: 100%;
     height: 100%;
-    font-family: Arial, sans-serif; /* Fallback if Ideal Sans is unavailable */
+    font-family: Arial, sans-serif;
 }
 
 /* Header Section */
@@ -47,19 +47,19 @@ html, body {
 
 /* Map Section (Left) */
 .map-container {
-    flex: 2;  /* Takes 2/3 of available space */
+    flex: 2;  /* Takes 2/3 of available space on page*/
     height: 100%;
 }
 
 /* Guide Section (Right) */
 .guide-container {
-    flex: 1;  /* Takes 1/3 of available space */
+    flex: 1;  /* Takes 1/3 of available space on page */
     background-color: #f8f9fa;
     padding: 30px;
     overflow-y: auto; /* Enables scrolling if content overflows */
     
-    /* Font Change */
-    font-family: "Lato", sans-serif; /* Fallback included */
+    /* Font Change. Lato is referenced in .html google link */
+    font-family: "Lato", sans-serif;
 }
 
 /* Increase spacing between points in the guide */
