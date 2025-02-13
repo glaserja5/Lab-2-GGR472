@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toronto Bike Safety Map</title>
+
+    <!-- Mapbox GL JS & Styles -->
+    <script src="https://api.mapbox.com/mapbox-gl-js/v3.9.4/mapbox-gl.js"></script>
+    <link href="https://api.mapbox.com/mapbox-gl-js/v3.9.4/mapbox-gl.css" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Header Section -->
+    <div class="header">
+        <img src="bikephoto.jpg" alt="Bike Safety" class="header-img">
+        <h1>Toronto Bike Safety Map</h1>
+    </div>
+
+
+    <!-- Main Content Section -->
+    <div class="main-container">
+        <!-- Map Section -->
+        <div id="my-map" class="map-container"></div>
+
+        <!-- Guide Section -->
+        <div class="guide-container">
+            <h2>This map shows fatal crashes on Toronto streets and designated bike paths.</h2>
+            <ul>
+                <li>Always wear a helmet and visible clothing.</li>
+                <li>Use bike lanes where available.</li>
+                <li>Obey all traffic signals and signs.</li>
+                <li>Be cautious of parked cars and door zones.</li>
+                <li>Use hand signals when turning or stopping.</li>
+                <li>Make eye contact with drivers at intersections.</li>
+            </ul>
+
+            <!-- Buttons for External Resources -->
+            <a href="https://www.youtube.com/watch?v=your-video-link" target="_blank" class="btn">
+                🎥 Watch Bike Safety Video
+            </a>
+            <a href="https://www.example.com/best-bike-helmets" target="_blank" class="btn">
+                🛒 Best Bike Helmets Guide
+            </a>
+        </div>
+
+        <!-- JavaScript -->
+        <script src="script.js"></script>
+</body>
+
+</html>
