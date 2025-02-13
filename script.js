@@ -15,10 +15,10 @@ map.addControl(new mapboxgl.NavigationControl());
 map.on("load", () => {
     console.log("✅ Map loaded!");
 
-    // call bikeroute data in github
+    // call bikeroute data
     map.addSource("bike-routes", {
         type: "geojson",
-        data: "https://glaserja5.github.io/Lab-2-GGR472/data/bikeroutes.geojson"
+        data: "https://glaserja5.github.io/Lab-2-GGR472/data/map.geojson"
     });
 
     // 🔹 ADD FATAL COLLISION DATA FROM MAPBOX TILESET
